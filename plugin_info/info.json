@@ -1,0 +1,13 @@
+{
+	"id" : "qrcodemanager",
+	"name" : "QR-Code Manager",
+	"description" : "Ce plugin permet de gérer des QR Codes et Barcodes, en important des existants ou en en créant des nouveaux.",
+	"licence" : "AGPL",
+	"author" : "lunarok",
+	"require" : "3.3.24",
+	"category" : "automatisation",
+	"language" : ["fr_FR","en_US"],
+	"compatibility" : ["miniplus","smart","rpi","docker","diy","mobile","v4"],
+	"changelog" : "https://lunarok.github.io/jeedom_docs/plugins/qrcodemanager/changelog.html",
+	"documentation" : "https://lunarok.github.io/jeedom_docs/plugins/qrcodemanager/"
+}
