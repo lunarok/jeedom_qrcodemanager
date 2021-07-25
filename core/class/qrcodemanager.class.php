@@ -49,6 +49,21 @@ class qrcodemanager extends eqLogic {
 		}
 		$image = '/' . $this->getId() . '.png';
 		$cmd = realpath(dirname(__FILE__) . '/../../resources') . $script . ' ' . $this->getConfiguration('registeredContent') . ' ' . realpath(dirname(__FILE__) . '/../../data') . $image;
+		log::add('qrcodemanager', 'debug', 'generateImage : ' . $cmd);
+		$result = exec($cmd);
+	}
+
+	public function scanImage() {
+		if ($this->getId() == 'QRCODE') {
+			$script = '/qrcodde.py';
+		} else {
+			$script = '/barcode-' . $this->getConfiguration('registeredType') . '.py';
+		}
+		$image = '/' . $this->getId() . '.png';
+		$cmd = realpath(dirname(__FILE__) . '/../../resources') . '/pyzbar.py /tmp/' . $this->getId() . '.png';
+		log::add('qrcodemanager', 'debug', 'scanImage : ' . $cmd);
+		$result = exec($cmd);
+		log::add('qrcodemanager', 'debug', 'result : ' . $result);
 	}
 
 }

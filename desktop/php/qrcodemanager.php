@@ -138,6 +138,15 @@ $eqLogics = eqLogic::byType('qrcodemanager');
               </div>
             </div>
 
+            <div class="form-group" id="bt_upload">
+      				<label class="col-sm-3 control-label">{{Envoyer un Fichier}}</label>
+      				<div class="col-sm-3">
+      					<span class="btn btn-default btn-file">
+      						<i class="fas fa-cloud-upload"></i> {{Envoyer}}<input type="file" name="file" data-url="plugins/qrcodemanager/core/ajax/qrcodemanager.ajax.php?action=imgUpload&jeedom_token=<?php echo ajax::getToken(); ?>">
+      					</span>
+      				</div>
+      			</div>
+
             <div class="form-group">
               <div style="text-align: center">
                 <img name="icon_visu" src="" width="200" height="200"/>
@@ -158,8 +167,10 @@ $eqLogics = eqLogic::byType('qrcodemanager');
 $( "#id" ).change(function(){
   if ($("#id").val() == '') {
     var text = 'plugins/qrcodemanager/plugin_info/qrcodemanager_icon.png';
+    $("#id").hide();
   } else {
     var text = 'plugins/qrcodemanager/data/' + $("#id").val() + '.png';
+    $("#id").show();
   }
   //$("#icon_visu").attr('src',text);
   document.icon_visu.src=text;

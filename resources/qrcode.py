@@ -7,6 +7,9 @@ qr = qrcode.QRCode(
     box_size=10,
     border=4,
 )
+
 qr.add_data("https://medium.com/@ngwaifoong92")
-qr.make(fit=True)img = qr.make_image(fill_color="black", back_color="white")
+qr.make(fit=True)
+
+img = qr.make_image(fill_color="black", back_color="white")
 img.save("qrcode.png")

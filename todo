@@ -1,4 +1,4 @@
-import fichier, bouton, ajax d'envoi, decryptage et remplissage + reload
+decryptage image : reload + envoi ID dans ajax
 panel avec select de tous les codes
-ajout image du barcode si existe sur la page équipement
+ajout image du barcode si existe sur la page équipement : a tester quand creation image ok
 widget spécifique ?
