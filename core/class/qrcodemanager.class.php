@@ -28,11 +28,11 @@ class qrcodemanager extends eqLogic {
 		$generate = 0;
 		//check if type and content have change
 		if ($this->getConfiguration('type') != $this->getConfiguration('registeredType')) {
-			$this->getConfiguration('registeredType') = $this->getConfiguration('type');
+			$this->setConfiguration('registeredType',$this->getConfiguration('type'));
 			$generate = 1;
 		}
 		if ($this->getConfiguration('content') != $this->getConfiguration('registeredContent')) {
-			$this->getConfiguration('registeredContent') = $this->getConfiguration('content');
+			$this->setConfiguration('registeredContent',$this->getConfiguration('content'));
 			$generate = 1;
 		}
 		//if change, generate image
