@@ -74,8 +74,8 @@ $eqLogics = eqLogic::byType('qrcodemanager');
             <div class="form-group">
               <label class="col-sm-3 control-label">{{Nom de l'équipement}}</label>
               <div class="col-sm-3">
-                <input type="text" class="eqLogicAttr form-control" data-l1key="id" id="id" style="display : none;" />
-                <input type="text" class="eqLogicAttr form-control" data-l1key="name" placeholder="{{Nom de l'équipement qrcodemanager}}"/>
+                <input type="text" class="eqLogicAttr form-control" data-l1key="id" style="display : none;" />
+                <input type="text" class="eqLogicAttr form-control" data-l1key="name" id="name" placeholder="{{Nom de l'équipement qrcodemanager}}"/>
               </div>
             </div>
             <div class="form-group">
@@ -139,7 +139,7 @@ $eqLogics = eqLogic::byType('qrcodemanager');
             </div>
 
             <div class="form-group" id="bt_upload">
-      				<label class="col-sm-3 control-label">{{Envoyer un Fichier}}</label>
+      				<label class="col-sm-3 control-label">{{Importer une Image avec Code}}</label>
       				<div class="col-sm-3">
       					<span class="btn btn-default btn-file">
       						<i class="fas fa-cloud-upload"></i> {{Envoyer}}<input type="file" name="file" data-url="plugins/qrcodemanager/core/ajax/qrcodemanager.ajax.php?action=imgUpload&jeedom_token=<?php echo ajax::getToken(); ?>">
@@ -164,15 +164,17 @@ $eqLogics = eqLogic::byType('qrcodemanager');
 <?php include_file('core', 'plugin.template', 'js'); ?>
 
 <script>
-$( "#id" ).change(function(){
+$( "#name" ).change(function(){
   if ($("#id").val() == '') {
-    var text = 'plugins/qrcodemanager/plugin_info/qrcodemanager_icon.png';
+
     $("#id").hide();
   } else {
-    var text = 'plugins/qrcodemanager/data/' + $("#id").val() + '.png';
+
     $("#id").show();
   }
   //$("#icon_visu").attr('src',text);
+  var text = 'plugins/qrcodemanager/plugin_info/qrcodemanager_icon.png';
+  var text = 'plugins/qrcodemanager/data/' + $("#id").val() + '.png';
   document.icon_visu.src=text;
 });
 </script>
