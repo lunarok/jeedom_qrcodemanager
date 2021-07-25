@@ -38,6 +38,7 @@ class qrcodemanager extends eqLogic {
 		//if change, generate image
 		if ($generate == 1) {
 			$this->generateImage();
+			$this->setConfiguration('imageExist',"1");
 		}
 	}
 

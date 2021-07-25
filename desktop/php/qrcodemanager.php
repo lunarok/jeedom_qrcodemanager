@@ -148,6 +148,13 @@ $eqLogics = eqLogic::byType('qrcodemanager');
       			</div>
 
             <div class="form-group">
+              <label class="col-sm-3 control-label" ></label>
+              <div class="col-sm-8">
+                <input type="text"  class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="imageExist" id="imageExist" style="display : none;"/>
+              </div>
+            </div>
+
+            <div class="form-group">
               <div style="text-align: center">
                 <img name="icon_visu" src="" width="200" height="200"/>
               </div>
@@ -165,16 +172,12 @@ $eqLogics = eqLogic::byType('qrcodemanager');
 
 <script>
 $( "#name" ).change(function(){
-  if ($("#id").val() == '') {
-
-    $("#id").hide();
+  if ($("#imageExist").val() == '1') {
+    var text = 'plugins/qrcodemanager/data/' + $("#id").val() + '.png';
   } else {
-
-    $("#id").show();
+    var text = 'plugins/qrcodemanager/plugin_info/qrcodemanager_icon.png';
   }
   //$("#icon_visu").attr('src',text);
-  var text = 'plugins/qrcodemanager/plugin_info/qrcodemanager_icon.png';
-  var text = 'plugins/qrcodemanager/data/' + $("#id").val() + '.png';
   document.icon_visu.src=text;
 });
 </script>
