@@ -83,6 +83,7 @@ class qrcodemanager extends eqLogic {
 		$cmd = 'python3 ' . realpath(dirname(__FILE__) . '/../../resources') . $script . ' ' . $this->getConfiguration('registeredContent') . ' ' . realpath(dirname(__FILE__) . '/../../data') . $image;
 		log::add('qrcodemanager', 'debug', 'generateImage : ' . $cmd);
 		$result = exec($cmd);
+		log::add('qrcodemanager', 'debug', 'result : ' . $result);
 	}
 
 	public function scanImage() {
