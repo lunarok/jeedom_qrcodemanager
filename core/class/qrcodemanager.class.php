@@ -74,7 +74,7 @@ class qrcodemanager extends eqLogic {
 
 	public function generateImage() {
 		log::add('qrcodemanager', 'debug', 'generateImage');
-		if ($this->getConfiguration('registeredType') == 'QRCODE') {
+		if ($this->getConfiguration('registeredType') == 'qrcode') {
 			$script = '/qrcodde.py';
 		} else {
 			$script = '/barcode-' . $this->getConfiguration('registeredType') . '.py';

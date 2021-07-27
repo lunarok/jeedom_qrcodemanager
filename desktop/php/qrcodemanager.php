@@ -172,7 +172,7 @@ $eqLogics = eqLogic::byType('qrcodemanager');
 
 <script>
 $( "#name" ).change(function(){
-  if ($("#imageExist").val() == '1') {
+  if ($("#imageExist").val() == 1) {
     var text = 'plugins/qrcodemanager/data/' + $("#id").val() + '.png';
   } else {
     var text = 'plugins/qrcodemanager/plugin_info/qrcodemanager_icon.png';
