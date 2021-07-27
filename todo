@@ -1,4 +1,3 @@
-decryptage image : reload + envoi ID dans ajax
+decryptage image : reload
 panel avec select de tous les codes
-ajout image du barcode si existe sur la page équipement : a tester quand creation image ok
 widget spécifique ?

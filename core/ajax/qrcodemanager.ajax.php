@@ -25,6 +25,15 @@ try {
   }
 
   if (init('action') == 'imgUpload') {
+    $id = 'unknow';
+    $parse = parse_url($_SERVER['HTTP_REFERER']);
+    $query = explode('&',$parse["query"]);
+    foreach ($query as $arg) {
+      $value = explode('=',$arg);
+      if ($value[0] == 'id') {
+        $id = $value[1];
+      }
+    }
     if (!isset($_FILES['file'])) {
       throw new Exception(__('Aucun fichier trouvé. Vérifié parametre PHP (post size limit)', __FILE__));
     }
@@ -38,10 +47,10 @@ try {
     if (!file_exists('/tmp/' . $_FILES['file']['name'])) {
       throw new Exception(__('Impossible d\'uploader le fichier (limite du serveur web ?)', __FILE__));
     }
-    if (!move_uploaded_file($_FILES['file']['tmp_name'], '/tmp/' . init('id') . '.png') {
+    if (!move_uploaded_file($_FILES['file']['tmp_name'], '/tmp/' . $id . '.png') {
       throw new Exception(__('Impossible de déplacer le fichier temporaire', __FILE__));
     }
-    $qrcode = qrcodemanager::byId(init('id'));
+    $qrcode = qrcodemanager::byId($id);
     $qrcode->scanImage();
     ajax::success();
   }
