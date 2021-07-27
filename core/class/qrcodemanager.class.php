@@ -49,10 +49,12 @@ class qrcodemanager extends eqLogic {
 	}
 
 	public function preSave() {
+		log::add('qrcodemanager', 'debug', 'preSave');
 		$this->checkImage();
 	}
 
 	public function checkImage() {
+		log::add('qrcodemanager', 'debug', 'checkImage');
 		$generate = 0;
 		//check if type and content have change
 		if ($this->getConfiguration('type') != $this->getConfiguration('registeredType')) {
@@ -71,6 +73,7 @@ class qrcodemanager extends eqLogic {
 	}
 
 	public function generateImage() {
+		log::add('qrcodemanager', 'debug', 'generateImage');
 		if ($this->getConfiguration('registeredType') == 'QRCODE') {
 			$script = '/qrcodde.py';
 		} else {
