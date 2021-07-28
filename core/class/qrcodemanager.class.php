@@ -76,10 +76,9 @@ class qrcodemanager extends eqLogic {
 		log::add('qrcodemanager', 'debug', 'generateImage');
 		$image = '/' . $this->getId();
 		if ($this->getConfiguration('registeredType') == 'qrcode') {
-			$script = 'qr ' . $this->getConfiguration('registeredContent') . ' > ' . realpath(dirname(__FILE__) . '/../../data') . $image . '.png';
+			$cmd = 'qr ' . $this->getConfiguration('registeredContent') . ' > ' . realpath(dirname(__FILE__) . '/../../data') . $image . '.png';
 		} else {
-			$script = 'python-barcode create -t png "' . $this->getConfiguration('registeredContent') . '" ';
-			$cmd = $script . realpath(dirname(__FILE__) . '/../../data') . $image . ' -b ' . $this->getConfiguration('registeredType');
+			$cmd = 'python-barcode create -t png "' . $this->getConfiguration('registeredContent') . '" ' . realpath(dirname(__FILE__) . '/../../data') . $image . ' -b ' . $this->getConfiguration('registeredType');
 			//isbn13 : 12 digits start by 978 or 979
 			//isbn10 : 9 digits
 			//ean13 : 12 digits
