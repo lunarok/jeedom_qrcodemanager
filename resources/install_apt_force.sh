@@ -26,6 +26,9 @@ echo 40 > ${PROGRESS_FILE}
 echo "Installation du module python-barcode pour python"
 sudo pip3 install python-barcode -U
 
+echo 50 > ${PROGRESS_FILE}
+echo "Installation du module PIL pour python"
+sudo pip3 install PIL -U
 
 echo 100 > /${PROGRESS_FILE}
 echo "********************************************************"
