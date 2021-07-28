@@ -32,9 +32,9 @@ if [ $(pip3 list | grep python-barcode | wc -l) -eq 0 ]; then
 fi
 
 echo 50 > ${PROGRESS_FILE}
-if [ $(pip3 list | grep PIL | wc -l) -eq 0 ]; then
-    echo "Installation du module PIL pour python"
-    sudo pip3 install PIL
+if [ $(pip3 list | grep pillow | wc -l) -eq 0 ]; then
+    echo "Installation du module pillow pour python"
+    sudo pip3 install pillow
 fi
 
 echo 100 > /${PROGRESS_FILE}
