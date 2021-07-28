@@ -31,6 +31,12 @@ if [ $(pip3 list | grep python-barcode | wc -l) -eq 0 ]; then
     sudo pip3 install python-barcode
 fi
 
+echo 50 > ${PROGRESS_FILE}
+if [ $(pip3 list | grep PIL | wc -l) -eq 0 ]; then
+    echo "Installation du module PIL pour python"
+    sudo pip3 install PIL
+fi
+
 echo 100 > /${PROGRESS_FILE}
 echo "********************************************************"
 echo "*             Installation terminée                    *"
