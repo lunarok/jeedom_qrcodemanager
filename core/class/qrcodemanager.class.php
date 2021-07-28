@@ -92,7 +92,7 @@ class qrcodemanager extends eqLogic {
 	}
 
 	public function scanImage() {
-		$cmd = 'python3 ' . realpath(dirname(__FILE__) . '/../../resources') . '/pyzbar.py /tmp/' . $this->getId() . '.png';
+		$cmd = 'zbarimg -S*.enable /tmp/' . $this->getId() . '.png';
 		log::add('qrcodemanager', 'debug', 'scanImage : ' . $cmd);
 		$result = exec($cmd);
 		log::add('qrcodemanager', 'debug', 'result : ' . $result);

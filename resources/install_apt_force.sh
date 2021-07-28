@@ -11,7 +11,7 @@ echo "********************************************************"
 sudo apt-get update
 echo 10 > ${PROGRESS_FILE}
 echo "Installation des dépendances apt"
-sudo apt-get -y install python3-dev python3-pip python3-setuptools libzbar0
+sudo apt-get -y install python3-dev python3-pip python3-setuptools libzbar0 zbar-tools
 
 echo 20 > ${PROGRESS_FILE}
 echo "Installation du module qrcode pour python"
