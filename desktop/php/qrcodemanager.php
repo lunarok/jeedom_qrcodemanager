@@ -117,16 +117,15 @@ $eqLogics = eqLogic::byType('qrcodemanager');
               <div class="col-sm-3">
                 <select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="type">
                   <option value="qrcode" selected>QRCode</option>
-                  <option value="Code39">Code39</option>
-                  <option value="Code128">Code128</option>
-                  <option value="PZN">PZN</option>
-                  <option value="EAN13">EAN13</option>
-                  <option value="EAN-8">EAN-8</option>
-                  <option value="JAN">JAN</option>
-                  <option value="ISBN-13">ISBN-13</option>
-                  <option value="ISBN-10">ISBN-10</option>
-                  <option value="ISSN">ISSN</option>
-                  <option value="UPC-A">UPC-A</option>
+                  <option value="code39">Code39</option>
+                  <option value="code128">Code128</option>
+                  <option value="pzn">PZN</option>
+                  <option value="ean13">EAN13</option>
+                  <option value="ean8">EAN-8</option>
+                  <option value="isbn13">ISBN-13</option>
+                  <option value="isbn10">ISBN-10</option>
+                  <option value="issn">ISSN</option>
+                  <option value="upca">UPC-A</option>
                 </select>
               </div>
             </div>

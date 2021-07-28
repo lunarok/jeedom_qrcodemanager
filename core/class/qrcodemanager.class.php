@@ -74,13 +74,19 @@ class qrcodemanager extends eqLogic {
 
 	public function generateImage() {
 		log::add('qrcodemanager', 'debug', 'generateImage');
+		$image = '/' . $this->getId();
 		if ($this->getConfiguration('registeredType') == 'qrcode') {
-			$script = '/qrcode.py';
+			$script = 'qr ' . $this->getConfiguration('registeredContent') . ' > ' . realpath(dirname(__FILE__) . '/../../data') . $image . '.png';
 		} else {
-			$script = '/barcode-' . $this->getConfiguration('registeredType') . '.py';
+			$script = 'python-barcode create -t png "' . $this->getConfiguration('registeredContent') . '" ';
+			$cmd = $script . realpath(dirname(__FILE__) . '/../../data') . $image . ' -b ' . $this->getConfiguration('registeredType');
+			//isbn13 : 12 digits start by 978 or 979
+			//isbn10 : 9 digits
+			//ean13 : 12 digits
+			//ean8 : 7 digits
+			//pzn 6 digits
+			//upca 11 digits
 		}
-		$image = '/' . $this->getId() . '.png';
-		$cmd = 'python3 ' . realpath(dirname(__FILE__) . '/../../resources') . $script . ' ' . $this->getConfiguration('registeredContent') . ' ' . realpath(dirname(__FILE__) . '/../../data') . $image;
 		log::add('qrcodemanager', 'debug', 'generateImage : ' . $cmd);
 		$result = exec($cmd);
 		log::add('qrcodemanager', 'debug', 'result : ' . $result);
