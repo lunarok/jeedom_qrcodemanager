@@ -7,13 +7,6 @@ parser.add_argument("content", help="content")
 parser.add_argument("img", help="img location")
 args = parser.parse_args()
 
-qr = qrcode.QRCode(
-    version=1,
-    error_correction=qrcode.constants.ERROR_CORRECT_H,
-    box_size=10,
-    border=4,
-)
-
 qr.add_data(args.content)
 qr.make(fit=True)
 
