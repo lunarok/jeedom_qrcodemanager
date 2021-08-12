@@ -171,15 +171,12 @@ $eqLogics = eqLogic::byType('qrcodemanager');
 
 <script>
 $(".eqLogicDisplayCard").click(function(){
-  if ($("#idField").val() != "") {
-    alert($("#idField").val() + " " + $("#imageExist").val());
-    if ($("#imageExist").val() == "1") {
-      var text = 'plugins/qrcodemanager/data/' + $("#id").value() + '.png';
-    } else {
-      var text = 'plugins/qrcodemanager/plugin_info/qrcodemanager_icon.png';
-    }
-    //$("#icon_visu").attr('src',text);
-    document.icon_visu.src=text;
+  if ($("#imageExist").val() == "1") {
+    var text = 'plugins/qrcodemanager/data/' + $("#idField").val() + '.png';
+  } else {
+    var text = 'plugins/qrcodemanager/plugin_info/qrcodemanager_icon.png';
   }
+  //$("#icon_visu").attr('src',text);
+  document.icon_visu.src=text;
 });
 </script>
