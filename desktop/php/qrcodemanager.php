@@ -170,7 +170,11 @@ $eqLogics = eqLogic::byType('qrcodemanager');
 <?php include_file('core', 'plugin.template', 'js'); ?>
 
 <script>
-function defineImage(){
+
+
+//$(".eqLogicDisplayCard").click(defineImage());
+
+window.onload(function(){
   if ($("#imageExist").val() == "1") {
     var text = 'plugins/qrcodemanager/data/' + $("#idField").val() + '.png';
   } else {
@@ -180,7 +184,4 @@ function defineImage(){
   document.icon_visu.src=text;
 });
 
-$(".eqLogicDisplayCard").click(defineImage());
-
-window.onload(defineImage());
 </script>
