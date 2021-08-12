@@ -74,8 +74,8 @@ $eqLogics = eqLogic::byType('qrcodemanager');
             <div class="form-group">
               <label class="col-sm-3 control-label">{{Nom de l'équipement}}</label>
               <div class="col-sm-3">
-                <input type="text" class="eqLogicAttr form-control" data-l1key="id" style="display : none;" />
-                <input type="text" class="eqLogicAttr form-control" data-l1key="name" id="name" placeholder="{{Nom de l'équipement qrcodemanager}}"/>
+                <input id="idField" type="text" class="eqLogicAttr form-control" data-l1key="id" style="display : none;" />
+                <input type="text" class="eqLogicAttr form-control" data-l1key="name" placeholder="{{Nom de l'équipement qrcodemanager}}"/>
               </div>
             </div>
             <div class="form-group">
@@ -170,8 +170,8 @@ $eqLogics = eqLogic::byType('qrcodemanager');
 <?php include_file('core', 'plugin.template', 'js'); ?>
 
 <script>
-$( "#name" ).change(function(){
-  alert($("#imageExist").value());
+$("#idField").change(function(){
+  alert($("#idField").value() + " " + $("#imageExist").value());
   if ($("#imageExist").value() == "1") {
     var text = 'plugins/qrcodemanager/data/' + $("#id").value() + '.png';
   } else {
