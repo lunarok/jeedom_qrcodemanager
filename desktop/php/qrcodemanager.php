@@ -174,7 +174,7 @@ $eqLogics = eqLogic::byType('qrcodemanager');
 
 //$(".eqLogicDisplayCard").click(defineImage());
 
-window.onload(function(){
+window.addEventListener("load", function(event) {
   if ($("#imageExist").val() == "1") {
     var text = 'plugins/qrcodemanager/data/' + $("#idField").val() + '.png';
   } else {
