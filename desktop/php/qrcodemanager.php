@@ -170,7 +170,7 @@ $eqLogics = eqLogic::byType('qrcodemanager');
 <?php include_file('core', 'plugin.template', 'js'); ?>
 
 <script>
-$("#idField").change(function(){
+$("#imageExist").change(function(){
   if ($("#idField").val() != "") {
     alert($("#idField").val() + " " + $("#imageExist").val());
     if ($("#imageExist").val() == "1") {
