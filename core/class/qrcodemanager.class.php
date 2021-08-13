@@ -96,6 +96,10 @@ class qrcodemanager extends eqLogic {
 		log::add('qrcodemanager', 'debug', 'scanImage : ' . $cmd);
 		$result = exec($cmd);
 		log::add('qrcodemanager', 'debug', 'result : ' . $result);
+		$array = explode(':',$result);
+		$this->setConfiguration('type',strtolower(str_replace('-','',$array[0])));
+		$this->setConfiguration('content',$array[1]);
+		$this->save();
 	}
 
 }
