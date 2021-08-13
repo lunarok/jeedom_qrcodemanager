@@ -35,11 +35,11 @@ function displayQrcodemanager() {
 						$('#div_inclusionAlert').showAlert({message: data.result, level: 'danger'});
 						return;
 		}
-		var table = '';
-		$("#select").options.length=0;
+		var $el = $("#select");
+		$el.empty();
 		for (qrcodemanager in data.result.qrcode) {
 			var qrcode = data.result.qrcode[qrcodemanager];
-			$("#select").options[$("#select").options.length].length= new Option(qrcode['name'], qrcode['id'], false, false);
+			$el.append($("<option></option>").attr("value", qrcode['id']).text(qrcode['name']));
 		}
 				}
 });
