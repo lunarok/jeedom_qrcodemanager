@@ -21,15 +21,7 @@
  });
 
  $('body').on('qrcodemanager::includeDevice', function (_event,_options) {
-    if (modifyWithoutSave) {
-        $('#div_inclusionAlert').showAlert({message: '{{Une image vient d\'être générée. Veuillez réactualiser la page}}', level: 'warning'});
-    } else {
-        if (_options == '') {
-            window.location.reload();
-        } else {
-            window.location.href = 'index.php?v=d&p=qrcodemanager&m=qrcodemanager&id=' + _options;
-        }
-    }
+    window.location.reload();
 });
 
  $(".li_eqLogic").on('click', function (event) {
