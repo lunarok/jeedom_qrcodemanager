@@ -44,11 +44,11 @@ try {
     if (filesize($_FILES['file']['tmp_name']) > 10000000) {
       throw new Exception(__('Le fichier est trop gros (maximum 10000ko)', __FILE__));
     }
-    if (!move_uploaded_file($_FILES['file']['tmp_name'], '/tmp/' . $id . $extension) {
+    /*if (!move_uploaded_file($_FILES['file']['tmp_name'], '\/tmp\/' . $id . $extension) {
       throw new Exception(__('Impossible de déplacer le fichier temporaire', __FILE__));
-    }
+    }*/
     $qrcode = qrcodemanager::byId($id);
-    $qrcode->scanImage($extension);
+    $qrcode->scanImage($_FILES['file']['tmp_name']);
     ajax::success();
   }
 
