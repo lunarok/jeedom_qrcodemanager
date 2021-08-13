@@ -44,7 +44,7 @@ function displayQrcodemanager() {
 		$("#select select").trigger('create');
 				}
 });
-});
+}
 
 $("#select").change(function(event) {
 	var text = 'plugins/qrcodemanager/data/' + $("#select").val() + '.png';
