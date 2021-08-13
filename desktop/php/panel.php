@@ -30,8 +30,12 @@ $eqLogics = qrcodemanager::byType('qrcodemanager');
     }
     ?>
   </select>
+  
+  <br>
 
 <img name="icon_visu" src="" width="400" height="400"/>
+
+  <br>
 
 <span id="content"></span>
 
