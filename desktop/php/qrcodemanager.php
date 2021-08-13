@@ -141,7 +141,7 @@ $eqLogics = eqLogic::byType('qrcodemanager');
       				<label class="col-sm-3 control-label">{{Importer une Image avec Code}}</label>
       				<div class="col-sm-3">
       					<span class="btn btn-default btn-file">
-      						<i class="fas fa-cloud-upload"></i> {{Envoyer}}<input id="bt_uploadImg" type="file" name="file" data-url="plugins/qrcodemanager/core/ajax/qrcodemanager.ajax.php?action=imgUpload&jeedom_token=<?php echo ajax::getToken(); ?>">
+      						<i class="fas fa-cloud-upload"></i> {{Sélectionner et transmettre une image}}<input id="bt_uploadImg" type="file" name="file" data-url="plugins/qrcodemanager/core/ajax/qrcodemanager.ajax.php?action=imgUpload&jeedom_token=<?php echo ajax::getToken(); ?>">
       					</span>
       				</div>
       			</div>

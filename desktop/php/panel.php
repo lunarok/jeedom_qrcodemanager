@@ -33,6 +33,8 @@ $eqLogics = qrcodemanager::byType('qrcodemanager');
 
 <img name="icon_visu" src="" width="400" height="400"/>
 
+<span id="content"></span>
+
 </center>
 
 <?php include_file('desktop', 'panel', 'js', 'qrcodemanager');?>

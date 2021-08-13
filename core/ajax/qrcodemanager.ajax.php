@@ -61,6 +61,12 @@ try {
     ajax::success($return);
   }
 
+  if (init('action') == 'getContent') {
+    $eqLogic = eqLogic::byId(init('id'));
+    $return['id'] = $eqLogic->getConfiguration('content');
+    ajax::success($return);
+  }
+
   throw new Exception(__('Aucune methode correspondante à : ', __FILE__) . init('action'));
   /*     * *********Catch exeption*************** */
 } catch (Exception $e) {

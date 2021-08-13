@@ -98,7 +98,7 @@ class qrcodemanager extends eqLogic {
 		$result = exec($cmd);
 		log::add('qrcodemanager', 'debug', 'result : ' . $result);
 		$array = explode(':',$result);
-		$type = array_shift(array);
+		$type = array_shift($array);
 		$this->setConfiguration('type',strtolower(str_replace('-','',$type)));
 		$this->setConfiguration('content',implode(":", $array));
 		$this->save();

@@ -43,6 +43,30 @@ function displayQrcodemanager() {
 		}
 		var text = 'plugins/qrcodemanager/data/' + data.result.qrcode[0]['id'] + '.png';
 		document.icon_visu.src=text;
+    getContent(data.result.qrcode[0]['id'])
+				}
+});
+}
+
+function getContent(id) {
+	$.ajax({
+				type: "POST",
+				url: "plugins/qrcodemanager/core/ajax/qrcodemanager.ajax.php",
+				data: {
+						action: "getContent",
+						id: id,
+				},
+				dataType: 'json',
+				global : false,
+				error: function (request, status, error) {
+						handleAjaxError(request, status, error);
+		},
+				success: function (data) { // si l'appel a bien fonctionné
+				if (data.state != 'ok') {
+						$('#div_inclusionAlert').showAlert({message: data.result, level: 'danger'});
+						return;
+		}
+	$("#content").text(data.result.id);
 				}
 });
 }
@@ -50,4 +74,5 @@ function displayQrcodemanager() {
 $("#select").change(function(event) {
 	var text = 'plugins/qrcodemanager/data/' + $("#select").val() + '.png';
 	document.icon_visu.src=text;
+  getContent($("#select").val());
 });
