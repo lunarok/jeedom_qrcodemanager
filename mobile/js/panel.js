@@ -36,12 +36,11 @@ function displayQrcodemanager() {
 						return;
 		}
 		var table = '';
+		$("#select").options.length=0;
 		for (qrcodemanager in data.result.qrcode) {
 			var qrcode = data.result.qrcode[qrcodemanager];
-			table += '<option value="' + qrcode['id'] + '">' + qrcode['name'] + '</option>';
+			$("#select").options[$("#select").options.length].length= new Option(qrcode['name'], qrcode['id'], false, false);
 		}
-		$("#select select").empty().append(table);
-		$("#select select").trigger('create');
 				}
 });
 }
