@@ -41,6 +41,8 @@ function displayQrcodemanager() {
 			var qrcode = data.result.qrcode[qrcodemanager];
 			$el.append($("<option></option>").attr("value", qrcode['id']).text(qrcode['name']));
 		}
+		var text = 'plugins/qrcodemanager/data/' + data.result.qrcode[0]['id'] + '.png';
+		document.icon_visu.src=text;
 				}
 });
 }
