@@ -19,3 +19,8 @@
    var text = 'plugins/qrcodemanager/data/' + $("#select").val() + '.png';
    document.icon_visu.src=text;
  });
+
+ window.addEventListener("load", function(event) {
+   var text = 'plugins/qrcodemanager/data/' + $("#select").val() + '.png';
+   document.icon_visu.src=text;
+ });
