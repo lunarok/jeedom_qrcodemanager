@@ -14,27 +14,23 @@
  * along with Plugin openzwave for jeedom. If not, see <http://www.gnu.org/licenses/>.
  */
 
-function initQrcodemanagerQrcodemanager() {
-	 getQrcodemanagerState()
-}
-
-function getQrcodemanagerState(){
+window.addEventListener("load", function(event) {
 	$.ajax({
-        type: "POST",
-        url: "plugins/qrcodemanager/core/ajax/qrcodemanager.ajax.php",
-        data: {
-            action: "getQrcodemanager",
-            type: "mobile",
-        },
-        dataType: 'json',
+				type: "POST",
+				url: "plugins/qrcodemanager/core/ajax/qrcodemanager.ajax.php",
+				data: {
+						action: "getQrcodemanager",
+						type: "mobile",
+				},
+				dataType: 'json',
 				global : false,
-        error: function (request, status, error) {
-            handleAjaxError(request, status, error);
+				error: function (request, status, error) {
+						handleAjaxError(request, status, error);
 		},
-        success: function (data) { // si l'appel a bien fonctionné
-        if (data.state != 'ok') {
-            $('#div_inclusionAlert').showAlert({message: data.result, level: 'danger'});
-            return;
+				success: function (data) { // si l'appel a bien fonctionné
+				if (data.state != 'ok') {
+						$('#div_inclusionAlert').showAlert({message: data.result, level: 'danger'});
+						return;
 		}
 		var table = '';
 		for (qrcodemanager in data.result.qrcode) {
@@ -43,9 +39,9 @@ function getQrcodemanagerState(){
 		}
 		$("#select select").empty().append(table);
 		$("#select select").trigger('create');
-        }
+				}
 });
-}
+});
 
 $("#select").change(function(event) {
 	var text = 'plugins/qrcodemanager/data/' + $("#select").val() + '.png';
