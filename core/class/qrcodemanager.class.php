@@ -91,8 +91,8 @@ class qrcodemanager extends eqLogic {
 		//log::add('qrcodemanager', 'debug', 'result : ' . $result);
 	}
 
-	public function scanImage() {
-		$cmd = 'zbarimg -S*.enable /tmp/' . $this->getId() . '.png';
+	public function scanImage($_type = '.png') {
+		$cmd = 'zbarimg -S*.enable /tmp/' . $this->getId() . $_type;
 		log::add('qrcodemanager', 'debug', 'scanImage : ' . $cmd);
 		$result = exec($cmd);
 		log::add('qrcodemanager', 'debug', 'result : ' . $result);

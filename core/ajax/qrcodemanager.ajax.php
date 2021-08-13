@@ -39,19 +39,16 @@ try {
     }
     $extension = strtolower(strrchr($_FILES['file']['name'], '.'));
     if (!in_array($extension, array('.jpg','.jpeg','.png'))) {
-      throw new Exception('Extension du fichier non valide (autorisé .mp3 .png) : ' . $extension);
+      throw new Exception('Extension du fichier non valide (autorisé .jpg .jpeg .png) : ' . $extension);
     }
     if (filesize($_FILES['file']['tmp_name']) > 10000000) {
       throw new Exception(__('Le fichier est trop gros (maximum 10000ko)', __FILE__));
     }
-    if (!file_exists('/tmp/' . $_FILES['file']['name'])) {
-      throw new Exception(__('Impossible d\'uploader le fichier (limite du serveur web ?)', __FILE__));
-    }
-    if (!move_uploaded_file($_FILES['file']['tmp_name'], '/tmp/' . $id . '.png') {
+    if (!move_uploaded_file($_FILES['file']['tmp_name'], '/tmp/' . $id . $extension) {
       throw new Exception(__('Impossible de déplacer le fichier temporaire', __FILE__));
     }
     $qrcode = qrcodemanager::byId($id);
-    $qrcode->scanImage();
+    $qrcode->scanImage($extension);
     ajax::success();
   }
 
