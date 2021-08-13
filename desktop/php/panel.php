@@ -18,8 +18,8 @@
 if (!isConnect('admin')) {
   throw new Exception('401 - Accès non autorisé');
 }
-$plugin = plugin::byId('klf200');
-$eqLogics = klf200::byType('klf200');
+$plugin = plugin::byId('qrcodemanager');
+$eqLogics = qrcodemanager::byType('qrcodemanager');
 ?>
 
 <center>
@@ -35,4 +35,4 @@ $eqLogics = klf200::byType('klf200');
 
 </center>
 
-<?php include_file('desktop', 'panel', 'js', 'klf200');?>
+<?php include_file('desktop', 'panel', 'js', 'qrcodemanager');?>
