@@ -37,8 +37,8 @@ function getQrcodemanagerState(){
             return;
 		}
 		var table = '';
-		for (qrcodemanager in data.result.shutters) {
-			var qrcode = data.result.shutters[qrcodemanager];
+		for (qrcodemanager in data.result.qrcode) {
+			var qrcode = data.result.qrcode[qrcodemanager];
 			table += '<option value="' + qrcode['id'] + '">' + qrcode['name'] + '</option>';
 		}
 		$("#select select").empty().append(table);

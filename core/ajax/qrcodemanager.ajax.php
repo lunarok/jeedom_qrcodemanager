@@ -52,6 +52,15 @@ try {
     ajax::success();
   }
 
+  if (init('action') == 'getQrcodemanager') {
+    foreach (eqLogic::byType('qrcodemanager',true) as $eqLogic) {
+      $return['qrcode'][] = array('id' => $eqLogic->getId();,
+                                    'name' => $eqLogic->getName(),
+                                  );
+    }
+    ajax::success($return);
+  }
+
   throw new Exception(__('Aucune methode correspondante à : ', __FILE__) . init('action'));
   /*     * *********Catch exeption*************** */
 } catch (Exception $e) {
