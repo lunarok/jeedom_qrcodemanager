@@ -1,13 +1,12 @@
-<table data-role="table" id="table_klf200" data-mode="columntoggle" class="ui-responsive table-stroke">
-  <thead>
-    <tr>
-      <th data-priority="1">{{Nom}}</th>
-      <th data-priority="1">{{Gestion}}</th>
-      <th data-priority="1">{{Manuel}}</th>
-    </tr>
-  </thead>
-  <tbody>
-  </tbody>
-</table>
+<center>
+  <select id="select">
+    <?php
+    foreach ($eqLogics as $eqLogic) {
+      echo '<option value="' . $eqLogic->getId() . '">' . $eqLogic->getHumanName() . '</option>';
+    }
+    ?>
+  </select>
 
-<script src="core/php/getJS.php?file=plugins/klf200/mobile/js/panel.js"></script>
+<img name="icon_visu" src="" width="400" height="400"/>
+
+<script src="core/php/getJS.php?file=plugins/qrcodemanager/mobile/js/panel.js"></script>

@@ -14,20 +14,20 @@
  * along with Plugin openzwave for jeedom. If not, see <http://www.gnu.org/licenses/>.
  */
 
-function initKlf200Klf200() {
-	 getKlf200State()
+function initQrcodemanagerQrcodemanager() {
+	 getQrcodemanagerState()
 }
 
-function getKlf200State(){
+function getQrcodemanagerState(){
 	$.ajax({
         type: "POST",
-        url: "plugins/klf200/core/ajax/klf200.ajax.php",
+        url: "plugins/qrcodemanager/core/ajax/qrcodemanager.ajax.php",
         data: {
-            action: "getKlf200",
+            action: "getQrcodemanager",
             type: "mobile",
         },
         dataType: 'json',
-		global : false,
+				global : false,
         error: function (request, status, error) {
             handleAjaxError(request, status, error);
 		},
@@ -37,33 +37,17 @@ function getKlf200State(){
             return;
 		}
 		var table = '';
-		for (klf200 in data.result.shutters) {
-			var shutter = data.result.shutters[klf200];
-			table += '<tr><td>' +  shutter['name'] +' <br/> '+ shutter['position'] +' <br/></td>';
-			table += '<td> <a class="bt_klf200Action ui-btn ui-mini ui-btn-inline ui-btn-raised clr-primary" data-cmd="'+shutter['open']+'"><i class="fas fa-arrow-up"></i></a>';
-			table += ' <a class="bt_klf200Action ui-btn ui-mini ui-btn-inline ui-btn-raised clr-primary" data-cmd="'+shutter['close']+'"><i class="fas fa-arrow-down"></i></a>';
-      table += ' <a class="bt_klf200Action ui-btn ui-mini ui-btn-inline ui-btn-raised clr-primary" data-cmd="'+shutter['stop']+'"><i class="fas fa-stop"></i></a></td>';
-			table += '<td>' + shutter['cmdhtml'] + '</td>';
-			table += '</tr>';
+		for (qrcodemanager in data.result.shutters) {
+			var qrcode = data.result.shutters[qrcodemanager];
+			table += '<option value="' + qrcode['id'] + '">' + qrcode['name'] + '</option>';
 		}
-		$("#table_klf200 tbody").empty().append(table);
-		$("#table_klf200 tbody").trigger('create');
+		$("#select select").empty().append(table);
+		$("#select select").trigger('create');
         }
 });
 }
 
- $('#table_klf200 tbody').on('click','.bt_klf200Action',function(){
-       jeedom.cmd.execute({id: $(this).data('cmd')});
-       getKlf200State();
-   })
-
-  $('#table_klf200 tbody').on('click','.bt_positionshutterAction',function(){
-       jeedom.cmd.execute({id: $(this).data('cmd'), value: {slider: $(this).data('value')}});
-       getKlf200State();
-   })
-
-setInterval(function() {
-
-getKlf200State();
-
-}, 5000);
+$("#select").change(function(event) {
+	var text = 'plugins/qrcodemanager/data/' + $("#select").val() + '.png';
+	document.icon_visu.src=text;
+});

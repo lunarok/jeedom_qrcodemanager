@@ -15,32 +15,7 @@
  * along with Jeedom. If not, see <http://www.gnu.org/licenses/>.
  */
 
- setTimeout(function () {
-  positionEqLogic();
-  $('.div_displayEquipement').disableSelection();
-  $( "input").click(function() { $(this).focus(); });
-  $( "textarea").click(function() { $(this).focus(); });
-  $('.div_displayEquipement').each(function(){
-    var container = $(this).packery({
-      itemSelector: ".eqLogic-widget",
-      gutter : 2,
-  });
-    var itemElems =  container.find('.eqLogic-widget');
-    itemElems.draggable();
-    container.packery( 'bindUIDraggableEvents', itemElems );
-});
-  $('.div_displayEquipement .eqLogic-widget').draggable('disable');
-  $('#bt_editDashboardWidgetOrder').on('click',function(){
-    if($(this).attr('data-mode') == 1){
-      $.hideAlert();
-      $(this).attr('data-mode',0);
-      editWidgetMode(0);
-      $(this).css('color','black');
-  }else{
-      $('#div_alert').showAlert({message: "{{Vous êtes en mode édition vous pouvez redimensionner les widgets}}", level: 'info'});
-      $(this).attr('data-mode',1);
-      editWidgetMode(1);
-      $(this).css('color','rgb(46, 176, 75)');
-  }
-});
-}, 1);
+ $("#select").change(function(event) {
+   var text = 'plugins/qrcodemanager/data/' + $("#select").val() + '.png';
+   document.icon_visu.src=text;
+ });
