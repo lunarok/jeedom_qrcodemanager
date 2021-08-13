@@ -19,7 +19,7 @@ if (!isConnect('admin')) {
   throw new Exception('401 - Accès non autorisé');
 }
 $plugin = plugin::byId('qrcodemanager');
-$eqLogics = qrcodemanager::byType('qrcodemanager');
+$eqLogics = qrcodemanager::byType('qrcodemanager',true);
 ?>
 
 <center>
@@ -30,7 +30,7 @@ $eqLogics = qrcodemanager::byType('qrcodemanager');
     }
     ?>
   </select>
-  
+
   <br>
 
 <img name="icon_visu" src="" width="400" height="400"/>
