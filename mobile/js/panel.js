@@ -13,8 +13,11 @@
  * You should have received a copy of the GNU General Public License
  * along with Plugin openzwave for jeedom. If not, see <http://www.gnu.org/licenses/>.
  */
+ function initQrcodemanagerPanel() {
+     displayQrcodemanager();
+ }
 
-window.addEventListener("load", function(event) {
+function displayQrcodemanager() {
 	$.ajax({
 				type: "POST",
 				url: "plugins/qrcodemanager/core/ajax/qrcodemanager.ajax.php",
