@@ -88,7 +88,7 @@ class qrcodemanager extends eqLogic {
 		}
 		log::add('qrcodemanager', 'debug', 'generateImage : ' . $cmd);
 		$result = exec($cmd);
-		log::add('qrcodemanager', 'debug', 'result : ' . $result);
+		//log::add('qrcodemanager', 'debug', 'result : ' . $result);
 	}
 
 	public function scanImage() {

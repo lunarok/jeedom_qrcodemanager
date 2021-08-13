@@ -141,7 +141,7 @@ $eqLogics = eqLogic::byType('qrcodemanager');
       				<label class="col-sm-3 control-label">{{Importer une Image avec Code}}</label>
       				<div class="col-sm-3">
       					<span class="btn btn-default btn-file">
-      						<i class="fas fa-cloud-upload"></i> {{Envoyer}}<input type="file" name="file" data-url="plugins/qrcodemanager/core/ajax/qrcodemanager.ajax.php?action=imgUpload&jeedom_token=<?php echo ajax::getToken(); ?>">
+      						<i class="fas fa-cloud-upload"></i> {{Envoyer}}<input id="bt_uploadImg" type="file" name="file" data-url="plugins/qrcodemanager/core/ajax/qrcodemanager.ajax.php?action=imgUpload&jeedom_token=<?php echo ajax::getToken(); ?>">
       					</span>
       				</div>
       			</div>
@@ -171,8 +171,18 @@ $eqLogics = eqLogic::byType('qrcodemanager');
 
 <script>
 
-
-//$(".eqLogicDisplayCard").click(defineImage());
+$('#bt_uploadImg').fileupload({
+	dataType: 'json',
+	replaceFileInput: false,
+	done: function (e, data) {
+		if (data.result.state != 'ok') {
+			$('#div_alert').showAlert({message: data.result.result, level: 'danger'});
+			return;
+		}
+		updateListMp3();
+		$('#div_alert').showAlert({message: '{{Fichier(s) ajouté(s) avec succès}}', level: 'success'});
+	}
+});
 
 window.addEventListener("load", function(event) {
   if ($("#imageExist").val() == "1") {
