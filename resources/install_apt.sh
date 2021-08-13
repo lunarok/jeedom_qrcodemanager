@@ -37,6 +37,12 @@ if [ $(pip3 list | grep pillow | wc -l) -eq 0 ]; then
     sudo pip3 install pillow
 fi
 
+echo 60 > ${PROGRESS_FILE}
+if [ $(pip3 list | grep qrcode | wc -l) -eq 0 ]; then
+    echo "Installation du module qrcode pour python"
+    sudo pip3 install qrcode
+fi
+
 echo 100 > /${PROGRESS_FILE}
 echo "********************************************************"
 echo "*             Installation terminée                    *"

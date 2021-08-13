@@ -76,8 +76,8 @@ class qrcodemanager extends eqLogic {
 		log::add('qrcodemanager', 'debug', 'generateImage');
 		$image = '/' . $this->getId();
 		if ($this->getConfiguration('registeredType') == 'qrcode') {
-			//$cmd = 'qr ' . $this->getConfiguration('registeredContent') . ' > ' . realpath(dirname(__FILE__) . '/../../data') . $image . '.png';
-			$cmd = 'segno -o=' . realpath(dirname(__FILE__) . '/../../data') . $image . '.png --title="' . $this->getConfiguration('registeredContent') . '" "' . $this->getConfiguration('registeredContent') . '"';
+			$cmd = 'qr ' . $this->getConfiguration('registeredContent') . ' > ' . realpath(dirname(__FILE__) . '/../../data') . $image . '.png';
+			//$cmd = 'segno -o=' . realpath(dirname(__FILE__) . '/../../data') . $image . '.png --title="' . $this->getConfiguration('registeredContent') . '" "' . $this->getConfiguration('registeredContent') . '"';
 		} else {
 			$cmd = 'python-barcode create -t png "' . $this->getConfiguration('registeredContent') . '" ' . realpath(dirname(__FILE__) . '/../../data') . $image . ' -b ' . $this->getConfiguration('registeredType');
 			//isbn13 : 12 digits start by 978 or 979
@@ -98,8 +98,9 @@ class qrcodemanager extends eqLogic {
 		$result = exec($cmd);
 		log::add('qrcodemanager', 'debug', 'result : ' . $result);
 		$array = explode(':',$result);
-		$this->setConfiguration('type',strtolower(str_replace('-','',$array[0])));
-		$this->setConfiguration('content',$array[1]);
+		$type = array_shift(array);
+		$this->setConfiguration('type',strtolower(str_replace('-','',$type)));
+		$this->setConfiguration('content',implode(":", $array));
 		$this->save();
 		event::add('qrcodemanager::includeDevice',
             array(
