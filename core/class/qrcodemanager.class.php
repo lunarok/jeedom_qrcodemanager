@@ -101,6 +101,11 @@ class qrcodemanager extends eqLogic {
 		$this->setConfiguration('type',strtolower(str_replace('-','',$array[0])));
 		$this->setConfiguration('content',$array[1]);
 		$this->save();
+		event::add('qrcodemanager::includeDevice',
+            array(
+                'state' => 1
+            )
+        );
 	}
 
 }
