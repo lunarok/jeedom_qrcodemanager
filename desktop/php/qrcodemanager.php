@@ -179,7 +179,6 @@ $('#bt_uploadImg').fileupload({
 			$('#div_alert').showAlert({message: data.result.result, level: 'danger'});
 			return;
 		}
-		updateListMp3();
 		$('#div_alert').showAlert({message: '{{Fichier(s) ajouté(s) avec succès}}', level: 'success'});
 	}
 });
