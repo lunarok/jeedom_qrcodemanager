@@ -25,7 +25,7 @@ class qrcodemanager extends eqLogic {
 		$return['progress_file'] = jeedom::getTmpFolder('qrcodemanager') . '/dependancy';
 		$cmd = "pip3 list | grep pyzbar";
 		exec($cmd, $output, $return_var);
-		$cmd = "pip3 list | grep pillow";
+		$cmd = "pip3 list | grep segno";
 		exec($cmd, $output2, $return_var);
 		$return['state'] = 'nok';
 		if (array_key_exists(0,$output) && array_key_exists(0,$output2)) {
@@ -76,7 +76,8 @@ class qrcodemanager extends eqLogic {
 		log::add('qrcodemanager', 'debug', 'generateImage');
 		$image = '/' . $this->getId();
 		if ($this->getConfiguration('registeredType') == 'qrcode') {
-			$cmd = 'qr ' . $this->getConfiguration('registeredContent') . ' > ' . realpath(dirname(__FILE__) . '/../../data') . $image . '.png';
+			//$cmd = 'qr ' . $this->getConfiguration('registeredContent') . ' > ' . realpath(dirname(__FILE__) . '/../../data') . $image . '.png';
+			$cmd = 'segno -o=' . realpath(dirname(__FILE__) . '/../../data') . $image . '.png --title="' . $this->getConfiguration('registeredContent') . '" "' . $this->getConfiguration('registeredContent') . '"';
 		} else {
 			$cmd = 'python-barcode create -t png "' . $this->getConfiguration('registeredContent') . '" ' . realpath(dirname(__FILE__) . '/../../data') . $image . ' -b ' . $this->getConfiguration('registeredType');
 			//isbn13 : 12 digits start by 978 or 979

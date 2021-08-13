@@ -14,9 +14,9 @@ echo "Installation des dépendances apt"
 sudo apt-get -y install python3-dev python3-pip python3-setuptools libzbar0 zbar-tools
 
 echo 20 > ${PROGRESS_FILE}
-if [ $(pip3 list | grep qrcode | wc -l) -eq 0 ]; then
-    echo "Installation du module qrcode pour python"
-    sudo pip3 install qrcode
+if [ $(pip3 list | grep segno | wc -l) -eq 0 ]; then
+    echo "Installation du module segno pour python"
+    sudo pip3 install segno
 fi
 
 echo 30 > ${PROGRESS_FILE}
