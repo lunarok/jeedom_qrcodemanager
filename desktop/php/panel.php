@@ -26,7 +26,9 @@ $eqLogics = qrcodemanager::byType('qrcodemanager',true);
   <select id="select">
     <?php
     foreach ($eqLogics as $eqLogic) {
-      echo '<option value="' . $eqLogic->getId() . '">' . $eqLogic->getHumanName() . '</option>';
+      if ($eqLogic->getConfiguration('user') == $_SESSION['user']->getId()) {
+        echo '<option value="' . $eqLogic->getId() . '">' . $eqLogic->getHumanName() . '</option>';
+      }
     }
     ?>
   </select>

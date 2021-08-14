@@ -113,6 +113,23 @@ $eqLogics = eqLogic::byType('qrcodemanager');
             </div>
 
             <div class="form-group">
+              <label class="col-sm-3 control-label">{{Utilisateur associé}}</label>
+              <div class="col-sm-3">
+                  <?php
+                  if (isConnect('admin')) {
+                    echo '<select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="user">';
+                    foreach (user::all() as $user) {
+                      echo '<option value="' . $user->getId() . '" selected>' . $user->getLogin() . '</option>';
+                    }
+                    echo '</select>';
+                  } else {
+                    echo '<input type="text"  class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="user" value="' . $_SESSION['user']->getId() . '" readonly/>';
+                  }
+                  ?>
+              </div>
+            </div>
+
+            <div class="form-group">
               <label class="col-sm-3 control-label">{{Type de QRCode/Barcode}}</label>
               <div class="col-sm-3">
                 <select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="type">
