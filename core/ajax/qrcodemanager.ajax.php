@@ -54,9 +54,11 @@ try {
 
   if (init('action') == 'getQrcodemanager') {
     foreach (eqLogic::byType('qrcodemanager',true) as $eqLogic) {
-      $return['qrcode'][] = array('id' => $eqLogic->getId(),
-                                    'name' => $eqLogic->getName(),
-                                  );
+      if ($eqLogic->getConfiguration('user') == $_SESSION['user']->getId()) {
+        $return['qrcode'][] = array('id' => $eqLogic->getId(),
+                                      'name' => $eqLogic->getName(),
+                                    );
+      }
     }
     ajax::success($return);
   }
