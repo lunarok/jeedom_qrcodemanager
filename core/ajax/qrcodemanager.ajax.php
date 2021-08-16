@@ -65,7 +65,11 @@ try {
 
   if (init('action') == 'getContent') {
     $eqLogic = eqLogic::byId(init('id'));
-    $return['id'] = $eqLogic->getConfiguration('content');
+    if (is_object(eqLogic)) {
+      $return['id'] = $eqLogic->getConfiguration('content');
+    } else {
+      $return['id'] = '';
+    }
     ajax::success($return);
   }
 

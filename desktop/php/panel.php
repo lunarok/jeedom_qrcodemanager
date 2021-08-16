@@ -15,9 +15,6 @@
 * along with Jeedom. If not, see <http://www.gnu.org/licenses/>.
 */
 
-if (!isConnect('admin')) {
-  throw new Exception('401 - Accès non autorisé');
-}
 $plugin = plugin::byId('qrcodemanager');
 $eqLogics = qrcodemanager::byType('qrcodemanager',true);
 ?>
