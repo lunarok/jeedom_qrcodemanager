@@ -170,6 +170,8 @@ $eqLogics = eqLogic::byType('qrcodemanager');
               </div>
             </div>
 
+            <div style="width: 500px" id="reader"></div>
+
             <div class="form-group">
               <div style="text-align: center">
                 <img name="icon_visu" src="" width="200" height="200"/>
@@ -186,28 +188,4 @@ $eqLogics = eqLogic::byType('qrcodemanager');
 <?php include_file('desktop', 'qrcodemanager', 'js', 'qrcodemanager'); ?>
 <?php include_file('core', 'plugin.template', 'js'); ?>
 
-<script>
-
-$('#bt_uploadImg').fileupload({
-	dataType: 'json',
-	replaceFileInput: false,
-	done: function (e, data) {
-		if (data.result.state != 'ok') {
-			$('#div_alert').showAlert({message: data.result.result, level: 'danger'});
-			return;
-		}
-		$('#div_alert').showAlert({message: '{{Fichier(s) ajouté(s) avec succès}}', level: 'success'});
-	}
-});
-
-window.addEventListener("load", function(event) {
-  if ($("#imageExist").val() == "1") {
-    var text = 'plugins/qrcodemanager/data/' + $("#idField").val() + '.png';
-  } else {
-    var text = 'plugins/qrcodemanager/plugin_info/qrcodemanager_icon.png';
-  }
-  //$("#icon_visu").attr('src',text);
-  document.icon_visu.src=text;
-});
-
-</script>
+<script src="plugins/qrcodemanager/desktop/js/html5-qrcode.min.js"></script>

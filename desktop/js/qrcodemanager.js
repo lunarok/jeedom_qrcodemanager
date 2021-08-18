@@ -13,6 +13,36 @@
  * You should have received a copy of the GNU General Public License
  * along with Jeedom. If not, see <http://www.gnu.org/licenses/>.
  */
+ $('#bt_uploadImg').fileupload({
+ 	dataType: 'json',
+ 	replaceFileInput: false,
+ 	done: function (e, data) {
+ 		if (data.result.state != 'ok') {
+ 			$('#div_alert').showAlert({message: data.result.result, level: 'danger'});
+ 			return;
+ 		}
+ 		$('#div_alert').showAlert({message: '{{Fichier(s) ajouté(s) avec succès}}', level: 'success'});
+ 	}
+ });
+
+ window.addEventListener("load", function(event) {
+   if ($("#imageExist").val() == "1") {
+     var text = 'plugins/qrcodemanager/data/' + $("#idField").val() + '.png';
+   } else {
+     var text = 'plugins/qrcodemanager/plugin_info/qrcodemanager_icon.png';
+   }
+   //$("#icon_visu").attr('src',text);
+   document.icon_visu.src=text;
+ });
+
+ function onScanSuccess(decodedText, decodedResult) {
+    // Handle on success condition with the decoded text or result.
+    console.log(`Scan result: ${decodedText}`, decodedResult);
+}
+
+var html5QrcodeScanner = new Html5QrcodeScanner(
+	"reader", { fps: 10, qrbox: 250 });
+html5QrcodeScanner.render(onScanSuccess);
 
  $("#butCol").click(function(){
    $("#hidCol").toggle("slow");
