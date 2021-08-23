@@ -26,9 +26,9 @@ if [ $(pip3 list | grep pyzbar | wc -l) -eq 0 ]; then
 fi
 
 echo 40 > ${PROGRESS_FILE}
-if [ $(pip3 list | grep python-jose[cryptography] | wc -l) -eq 0 ]; then
+if [ $(pip3 list | grep python-jose | wc -l) -eq 0 ]; then
     echo "Installation du module python-jose[cryptography] pour python"
-    sudo pip3 install python-jose[cryptography]
+    sudo pip3 install python-jose
 fi
 
 echo 50 > ${PROGRESS_FILE}
