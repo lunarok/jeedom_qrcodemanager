@@ -106,7 +106,7 @@ class qrcodemanager extends eqLogic {
 			//greenpass
 			$cmd = "python3 " . realpath(dirname(__FILE__) . '/../../resources') . "/verify_ehc.py --no-verify '" . implode(":", $array) . "'";
 			$result = exec($cmd);
-			log::add('qrcodemanager', 'debug', 'execute : ' . $cmd)
+			log::add('qrcodemanager', 'debug', 'execute : ' . $cmd);
 			log::add('qrcodemanager', 'debug', 'HC1 : ' . $result);
 			$this->setConfiguration('hc1',1);
 			$this->setConfiguration('hc1Content',$result);
