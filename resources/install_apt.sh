@@ -14,9 +14,9 @@ echo "Installation des dépendances apt"
 sudo apt-get -y install python3-dev python3-pip python3-setuptools libzbar0 zbar-tools qrencode
 
 echo 20 > ${PROGRESS_FILE}
-if [ $(pip3 list | grep segno | wc -l) -eq 0 ]; then
-    echo "Installation du module segno pour python"
-    sudo pip3 install segno
+if [ $(pip3 list | grep cose | wc -l) -eq 0 ]; then
+    echo "Installation du module cose pour python"
+    sudo pip3 install cose
 fi
 
 echo 30 > ${PROGRESS_FILE}
@@ -26,9 +26,9 @@ if [ $(pip3 list | grep pyzbar | wc -l) -eq 0 ]; then
 fi
 
 echo 40 > ${PROGRESS_FILE}
-if [ $(pip3 list | grep python-barcode | wc -l) -eq 0 ]; then
-    echo "Installation du module python-barcode pour python"
-    sudo pip3 install python-barcode
+if [ $(pip3 list | grep python-jose[cryptography] | wc -l) -eq 0 ]; then
+    echo "Installation du module python-jose[cryptography] pour python"
+    sudo pip3 install python-jose[cryptography]
 fi
 
 echo 50 > ${PROGRESS_FILE}
@@ -38,9 +38,9 @@ if [ $(pip3 list | grep pillow | wc -l) -eq 0 ]; then
 fi
 
 echo 60 > ${PROGRESS_FILE}
-if [ $(pip3 list | grep qrcode | wc -l) -eq 0 ]; then
-    echo "Installation du module qrcode pour python"
-    sudo pip3 install qrcode
+if [ $(pip3 list | grep cryptography | wc -l) -eq 0 ]; then
+    echo "Installation du module cryptography pour python"
+    sudo pip3 install cryptography
 fi
 
 echo 70 > ${PROGRESS_FILE}
@@ -49,10 +49,34 @@ if [ $(pip3 list | grep base45 | wc -l) -eq 0 ]; then
     sudo pip3 install base45
 fi
 
-echo 80 > ${PROGRESS_FILE}
+echo 75 > ${PROGRESS_FILE}
 if [ $(pip3 list | grep cbor2 | wc -l) -eq 0 ]; then
     echo "Installation du module cbor2 pour python"
     sudo pip3 install cbor2
+fi
+
+echo 80 > ${PROGRESS_FILE}
+if [ $(pip3 list | grep lxml | wc -l) -eq 0 ]; then
+    echo "Installation du module lxml pour python"
+    sudo pip3 install lxml
+fi
+
+echo 85 > ${PROGRESS_FILE}
+if [ $(pip3 list | grep python-dateutil | wc -l) -eq 0 ]; then
+    echo "Installation du module python-dateutil pour python"
+    sudo pip3 install python-dateutil
+fi
+
+echo 90 > ${PROGRESS_FILE}
+if [ $(pip3 list | grep asn1crypto | wc -l) -eq 0 ]; then
+    echo "Installation du module asn1crypto pour python"
+    sudo pip3 install asn1crypto
+fi
+
+echo 95 > ${PROGRESS_FILE}
+if [ $(pip3 list | grep jwcrypto | wc -l) -eq 0 ]; then
+    echo "Installation du module jwcrypto pour python"
+    sudo pip3 install jwcrypto
 fi
 
 echo 100 > /${PROGRESS_FILE}

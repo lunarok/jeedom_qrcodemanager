@@ -104,9 +104,13 @@ class qrcodemanager extends eqLogic {
 		log::add('qrcodemanager', 'debug', 'type : ' . $array[0]);
 		if ($array[0] == 'HC1') {
 			//greenpass
-			$cmd = realpath(dirname(__FILE__) . '/../../resources') . '/vacdec ' . $_type;
+			$cmd = "python3 " . realpath(dirname(__FILE__) . '/../../resources') . "/verify_ehc.py --no-verify '" . $_type . "'";
 			$result = exec($cmd);
 			log::add('qrcodemanager', 'debug', 'HC1 : ' . $result);
+			$this->setConfiguration('hc1',1);
+			$this->setConfiguration('hc1Content',$result);
+		} else {
+			$this->setConfiguration('hc1',0);
 		}
 		$this->save();
 		event::add('qrcodemanager::includeDevice',
