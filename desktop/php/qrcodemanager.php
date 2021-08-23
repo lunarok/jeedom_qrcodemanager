@@ -150,7 +150,7 @@ $eqLogics = eqLogic::byType('qrcodemanager');
             <div class="form-group">
               <label class="col-sm-3 control-label">{{Contenu du code}}</label>
               <div class="col-sm-3">
-                <input type="text"  class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="content" />
+                <input type="text"  class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="content" id="content"/>
               </div>
             </div>
 
@@ -169,8 +169,6 @@ $eqLogics = eqLogic::byType('qrcodemanager');
                 <input type="text"  class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="imageExist" id="imageExist" style="display : none;"/>
               </div>
             </div>
-
-            <div style="width: 500px" id="reader"></div>
 
             <div class="form-group">
               <div style="text-align: center">

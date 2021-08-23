@@ -101,6 +101,12 @@ class qrcodemanager extends eqLogic {
 		$type = array_shift($array);
 		$this->setConfiguration('type',strtolower(str_replace('-','',$type)));
 		$this->setConfiguration('content',implode(":", $array));
+		if ($array[0] == 'HC1') {
+			//greenpass
+			$cmd = realpath(dirname(__FILE__) . '/../../resources') . '/vacdec ' . $_type;
+			$result = exec($cmd);
+			log::add('qrcodemanager', 'debug', 'HC1 : ' . $result);
+		}
 		$this->save();
 		event::add('qrcodemanager::includeDevice',
             array(

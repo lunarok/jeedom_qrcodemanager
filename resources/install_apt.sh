@@ -43,6 +43,18 @@ if [ $(pip3 list | grep qrcode | wc -l) -eq 0 ]; then
     sudo pip3 install qrcode
 fi
 
+echo 70 > ${PROGRESS_FILE}
+if [ $(pip3 list | grep base45 | wc -l) -eq 0 ]; then
+    echo "Installation du module base45 pour python"
+    sudo pip3 install base45
+fi
+
+echo 80 > ${PROGRESS_FILE}
+if [ $(pip3 list | grep cbor2 | wc -l) -eq 0 ]; then
+    echo "Installation du module cbor2 pour python"
+    sudo pip3 install cbor2
+fi
+
 echo 100 > /${PROGRESS_FILE}
 echo "********************************************************"
 echo "*             Installation terminée                    *"

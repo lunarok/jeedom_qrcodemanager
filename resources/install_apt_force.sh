@@ -34,6 +34,14 @@ echo 60 > ${PROGRESS_FILE}
 echo "Installation du module qrcode pour python"
 sudo pip3 install qrcode -U
 
+echo 70 > ${PROGRESS_FILE}
+echo "Installation du module base45 pour python"
+sudo pip3 install base45 -U
+
+echo 80 > ${PROGRESS_FILE}
+echo "Installation du module cbor2 pour python"
+sudo pip3 install cbor2 -U
+
 echo 100 > /${PROGRESS_FILE}
 echo "********************************************************"
 echo "*             Installation terminée                    *"

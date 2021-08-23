@@ -13,6 +13,26 @@
  * You should have received a copy of the GNU General Public License
  * along with Jeedom. If not, see <http://www.gnu.org/licenses/>.
  */
+ window.addEventListener("load", function(event) {
+   if ($("#imageExist").val() == "1") {
+     var text = 'plugins/qrcodemanager/data/' + $("#idField").val() + '.png';
+   } else {
+     var text = 'plugins/qrcodemanager/plugin_info/qrcodemanager_icon.png';
+   }
+   //$("#icon_visu").attr('src',text);
+   document.icon_visu.src=text;
+ });
+
+ $("#content").change(function(event) {
+   if ($("#imageExist").val() == "1") {
+     var text = 'plugins/qrcodemanager/data/' + $("#idField").val() + '.png';
+   } else {
+     var text = 'plugins/qrcodemanager/plugin_info/qrcodemanager_icon.png';
+   }
+   //$("#icon_visu").attr('src',text);
+   document.icon_visu.src=text;
+ });
+
  $('#bt_uploadImg').fileupload({
  	dataType: 'json',
  	replaceFileInput: false,

@@ -65,7 +65,7 @@ try {
 
   if (init('action') == 'getContent') {
     $eqLogic = eqLogic::byId(init('id'));
-    if (is_object(eqLogic)) {
+    if (is_object($eqLogic)) {
       $return['id'] = $eqLogic->getConfiguration('registeredContent');
     } else {
       $return['id'] = '';
