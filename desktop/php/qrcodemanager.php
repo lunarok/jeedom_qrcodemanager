@@ -187,5 +187,3 @@ $eqLogics = eqLogic::byType('qrcodemanager');
 
 <?php include_file('desktop', 'qrcodemanager', 'js', 'qrcodemanager'); ?>
 <?php include_file('core', 'plugin.template', 'js'); ?>
-
-<script src="plugins/qrcodemanager/desktop/js/html5-qrcode.min.js"></script>
