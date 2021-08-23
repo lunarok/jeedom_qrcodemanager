@@ -95,7 +95,7 @@ class qrcodemanager extends eqLogic {
 	public function scanImage($_type) {
 		$cmd = 'zbarimg -S*.enable ' . $_type;
 		log::add('qrcodemanager', 'debug', 'scanImage : ' . $cmd);
-		$result = exec($cmd);
+		$result = shell_exec($cmd);
 		log::add('qrcodemanager', 'debug', 'result : ' . $result);
 		$array = explode(':',$result);
 		$type = array_shift($array);
@@ -105,7 +105,7 @@ class qrcodemanager extends eqLogic {
 		if ($array[0] == 'HC1') {
 			//greenpass
 			$cmd = "python3 " . realpath(dirname(__FILE__) . '/../../resources') . "/verify_ehc.py --no-verify '" . implode(":", $array) . "'";
-			$result = exec($cmd);
+			$result = shell_exec($cmd);
 			log::add('qrcodemanager', 'debug', 'execute : ' . $cmd);
 			log::add('qrcodemanager', 'debug', 'HC1 : ' . $result);
 			$this->setConfiguration('hc1',1);
