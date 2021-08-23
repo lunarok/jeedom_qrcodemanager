@@ -101,6 +101,7 @@ class qrcodemanager extends eqLogic {
 		$type = array_shift($array);
 		$this->setConfiguration('type',strtolower(str_replace('-','',$type)));
 		$this->setConfiguration('content',implode(":", $array));
+		log::add('qrcodemanager', 'debug', 'type : ' . $array[0]);
 		if ($array[0] == 'HC1') {
 			//greenpass
 			$cmd = realpath(dirname(__FILE__) . '/../../resources') . '/vacdec ' . $_type;
