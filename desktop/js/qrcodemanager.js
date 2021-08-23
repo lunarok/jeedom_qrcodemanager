@@ -25,25 +25,6 @@
  	}
  });
 
- window.addEventListener("load", function(event) {
-   if ($("#imageExist").val() == "1") {
-     var text = 'plugins/qrcodemanager/data/' + $("#idField").val() + '.png';
-   } else {
-     var text = 'plugins/qrcodemanager/plugin_info/qrcodemanager_icon.png';
-   }
-   //$("#icon_visu").attr('src',text);
-   document.icon_visu.src=text;
- });
-
- function onScanSuccess(decodedText, decodedResult) {
-    // Handle on success condition with the decoded text or result.
-    console.log(`Scan result: ${decodedText}`, decodedResult);
-}
-
-var html5QrcodeScanner = new Html5QrcodeScanner(
-	"reader", { fps: 10, qrbox: 250 });
-html5QrcodeScanner.render(onScanSuccess);
-
  $("#butCol").click(function(){
    $("#hidCol").toggle("slow");
    document.getElementById("listCol").classList.toggle('col-lg-12');
