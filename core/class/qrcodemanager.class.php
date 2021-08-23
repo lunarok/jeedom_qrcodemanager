@@ -76,7 +76,7 @@ class qrcodemanager extends eqLogic {
 		log::add('qrcodemanager', 'debug', 'generateImage');
 		$image = '/' . $this->getId();
 		if ($this->getConfiguration('registeredType') == 'qrcode') {
-			$cmd = 'qrencode "' . $this->getConfiguration('registeredContent') . '" -l H -o ' . realpath(dirname(__FILE__) . '/../../data') . $image . '.png';
+			$cmd = 'segno "' . $this->getConfiguration('registeredContent') . '" -o=' . realpath(dirname(__FILE__) . '/../../data') . $image . '.png';
 			//$cmd = 'segno -o=' . realpath(dirname(__FILE__) . '/../../data') . $image . '.png --title="' . $this->getConfiguration('registeredContent') . '" "' . $this->getConfiguration('registeredContent') . '"';
 		} else {
 			$cmd = 'python-barcode create -t png "' . $this->getConfiguration('registeredContent') . '" ' . realpath(dirname(__FILE__) . '/../../data') . $image . ' -b ' . $this->getConfiguration('registeredType');
