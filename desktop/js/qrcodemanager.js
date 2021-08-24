@@ -33,11 +33,6 @@
    document.icon_visu.src=text;
  });
 
- $('#bt_icondash').on('click', function () {
-    $('#md_modal').dialog({title: "{{Scanner}}"});
-    $('#md_modal').load('index.php?v=d&plugin=qrcodemanager&modal=scan').dialog('open');
-});
-
  $('#bt_uploadImg').fileupload({
  	dataType: 'json',
  	replaceFileInput: false,
