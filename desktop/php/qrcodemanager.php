@@ -164,15 +164,6 @@ $eqLogics = eqLogic::byType('qrcodemanager');
       			</div>
 
             <div class="form-group">
-      				<label class="col-sm-3 control-label">{{Scanner un QRCode}}</label>
-      				<div class="col-sm-3">
-      					<span class="btn btn-default btn-file">
-      						<i class="fas fa-camera"></i> {{Ouvrir le scanner}}<input id="bt_icondash">
-      					</span>
-      				</div>
-      			</div>
-
-            <div class="form-group">
               <label class="col-sm-3 control-label" ></label>
               <div class="col-sm-8">
                 <input type="text"  class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="imageExist" id="imageExist" style="display : none;"/>
