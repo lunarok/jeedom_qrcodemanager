@@ -14,7 +14,6 @@
  * along with Jeedom. If not, see <http://www.gnu.org/licenses/>.
  */
  window.addEventListener("load", function(event) {
-   alert($("#idField").val());
    if ($("#imageExist").val() == "1") {
      var text = 'plugins/qrcodemanager/data/' + $("#idField").val() + '.png';
    } else {
@@ -25,7 +24,6 @@
  });
 
  $("#content").change(function(event) {
-   alert($("#idField").val());
    if ($("#imageExist").val() == "1") {
      var text = 'plugins/qrcodemanager/data/' + $("#idField").val() + '.png';
    } else {
