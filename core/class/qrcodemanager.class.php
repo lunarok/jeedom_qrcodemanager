@@ -20,34 +20,6 @@
 require_once dirname(__FILE__) . '/../../../../core/php/core.inc.php';
 
 class qrcodemanager extends eqLogic {
-	public static function dependancy_info() {
-		$return = array();
-		$return['progress_file'] = jeedom::getTmpFolder('qrcodemanager') . '/dependancy';
-		$cmd = "pip3 list | grep pyzbar";
-		exec($cmd, $output, $return_var);
-		$cmd = "pip3 list | grep segno";
-		exec($cmd, $output2, $return_var);
-		$return['state'] = 'nok';
-		if (array_key_exists(0,$output) && array_key_exists(0,$output2)) {
-		    if ($output[0] != "" && $output2[0] != "") {
-			$return['state'] = 'ok';
-		    }
-		}
-		return $return;
-	}
-
-	public static function dependancy_install() {
-		$dep_info = self::dependancy_info();
-		log::remove(__CLASS__ . '_dep');
-		$resource_path = realpath(dirname(__FILE__) . '/../../resources');
-		if ($dep_info['state'] != 'ok') {
-
-			passthru('/bin/bash ' . $resource_path . '/install_apt.sh ' . jeedom::getTmpFolder('qrcodemanager') . '/dependancy > ' . log::getPathToLog(__CLASS__ . '_dep') . ' 2>&1 &');
-		} else {
-			passthru('/bin/bash ' . $resource_path . '/install_apt_force.sh ' . jeedom::getTmpFolder('qrcodemanager') . '/dependancy > ' . log::getPathToLog(__CLASS__ . '_dep') . ' 2>&1 &');
-		}
-	}
-
 	public function preSave() {
 		log::add('qrcodemanager', 'debug', 'preSave');
 		$this->checkImage();

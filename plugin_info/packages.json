@@ -1,0 +1,23 @@
+{
+    "apt" : {
+      "python3-dev" : {},
+      "python3-pip" : {},
+      "python3-setuptools" : {},
+      "libzbar0" : {},
+      "zbar-tools" : {},
+      "qrencode" : {}
+    },
+  "pip3" : {
+      "cose" : {},
+      "pyzbar" : {},
+      "jose" : {},
+      "pillow" : {},
+      "cryptography" : {},
+      "base45" : {},
+      "cbor2" : {},
+      "lxml" : {},
+      "python-dateutil" : {},
+      "asn1crypto" : {},
+      "jwcrypto" : {}
+    }
+  }

@@ -4,7 +4,7 @@
 	"description" : "Ce plugin permet de gérer des QR Codes et Barcodes, en important des existants ou en en créant des nouveaux.",
 	"licence" : "AGPL",
 	"author" : "lunarok",
-	"require" : "4.1",
+	"require" : "4.2",
 	"hasDependency" : 1,
 	"display" : "panel",
 	"mobile" : "panel",
